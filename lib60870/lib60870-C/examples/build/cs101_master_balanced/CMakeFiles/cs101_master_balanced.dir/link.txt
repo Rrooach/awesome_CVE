@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang   -rdynamic CMakeFiles/cs101_master_balanced.dir/master_example.o  -o cs101_master_balanced -llib60870 

@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang   -rdynamic CMakeFiles/multi_client_server.dir/multi_client_server.o  -o multi_client_server -llib60870 

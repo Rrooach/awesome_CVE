@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/tests.dir/all_tests.o CMakeFiles/tests.dir/unity/unity.o  -o tests -rdynamic -llib60870 

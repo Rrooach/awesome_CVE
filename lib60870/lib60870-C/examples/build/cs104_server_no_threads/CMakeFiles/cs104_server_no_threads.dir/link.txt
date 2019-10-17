@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang   -rdynamic CMakeFiles/cs104_server_no_threads.dir/cs104_server_no_threads.o  -o cs104_server_no_threads -llib60870 

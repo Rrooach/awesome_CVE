@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang   -rdynamic CMakeFiles/simple_client.dir/simple_client.o  -o simple_client -llib60870 

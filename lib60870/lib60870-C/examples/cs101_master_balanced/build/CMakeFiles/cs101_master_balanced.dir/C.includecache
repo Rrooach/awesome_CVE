@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/master_example.c
+iec60870_master.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/iec60870_master.h
+iec60870_common.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/iec60870_common.h
+hal_time.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/hal_time.h
+hal_thread.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/hal_thread.h
+hal_serial.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/hal_serial.h
+cs101_master.h
+/root/temp/iec/lib60870/lib60870-C/examples/cs101_master_balanced/cs101_master.h
+stdio.h
+-
+stdlib.h
+-
+signal.h
+-
+

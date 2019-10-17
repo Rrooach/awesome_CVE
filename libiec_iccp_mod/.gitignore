@@ -1,0 +1,13 @@
+*.TXT
+*.CFG
+*.LOG
+*.BIN
+*.SOE
+*.o
+*.d
+*.h.gch
+bin/*
+build/*
+build_win32/*
+.cproject
+.project

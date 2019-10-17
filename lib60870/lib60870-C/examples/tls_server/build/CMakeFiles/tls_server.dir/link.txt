@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang  -fsanitize=address    -fsanitize=address CMakeFiles/tls_server.dir/tls_server.o  -o tls_server -rdynamic -llib60870 

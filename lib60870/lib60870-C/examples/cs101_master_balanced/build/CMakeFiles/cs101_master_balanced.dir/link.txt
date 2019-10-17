@@ -1,0 +1,1 @@
+/root/fuzzer/afl-2.52b/afl-clang  -fsanitize=address    -fsanitize=address CMakeFiles/cs101_master_balanced.dir/master_example.o  -o cs101_master_balanced -rdynamic -llib60870 
