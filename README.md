@@ -1,6 +1,6 @@
 # awesome_CVE
 I hate cve!!!!
-why do not approve my apply!!! 
+Why do not approve my apply!!! 
 
 | Project | Type | Advisory | Total |
 | :--------:| :-----:  | :----:  |:-----:|
@@ -11,4 +11,4 @@ why do not approve my apply!!!
 | lib60870 | SEGV |	CVE-XXX, CVE-XXX, CVE-XXX | 3 |
 
 
-file will continually update
+Table will continually update
