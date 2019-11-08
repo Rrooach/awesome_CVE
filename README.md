@@ -1,6 +1,6 @@
 # awesome_CVE
-I hate cve!!!!
-Why do not approve my apply!!! 
+
+bug found at ICS protocol
 
 | Project | Type | Advisory | Total |
 | :--------:| :-----:  | :----:  |:-----:|
@@ -13,5 +13,4 @@ Why do not approve my apply!!!
 |  | MEMORY_LEAK |  CVE-XXX |  |
 | libs7comm | MEMORY LEAK | CVE-XXX | 1 |
 
-
-Table will continually update
+ 
