@@ -1,0 +1,33 @@
+000:  __alloc_pages_nodemask+0x479/0x610 mm/page_alloc.c:4861
+000:  alloc_pages_current+0xe7/0x1e0 mm/mempolicy.c:2192
+000:  alloc_pages include/linux/gfp.h:532 [inline]
+000:  __page_cache_alloc+0x11b/0x1e0 mm/filemap.c:981
+000:  pagecache_get_page+0x18c/0x650 mm/filemap.c:1671
+000:  filemap_fault+0xb62/0x1b20 mm/filemap.c:2531
+000: Kernel panic - not syncing: System is deadlocked on memory
+000: CPU: 0 PID: 2 Comm: kthreadd Not tainted 5.4.0-rt1+ #1
+000: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+000: Call Trace:
+000:  __dump_stack lib/dump_stack.c:77 [inline]
+000:  dump_stack+0x95/0xce lib/dump_stack.c:118
+000:  panic+0x24b/0x582 kernel/panic.c:221
+000:  out_of_memory mm/oom_kill.c:1108 [inline]
+000:  out_of_memory.cold+0xce/0x143 mm/oom_kill.c:1043
+000:  __alloc_pages_may_oom mm/page_alloc.c:3947 [inline]
+000:  __alloc_pages_slowpath+0x1983/0x1ff0 mm/page_alloc.c:4691
+000:  __alloc_pages_nodemask+0x479/0x610 mm/page_alloc.c:4861
+000:  __alloc_pages include/linux/gfp.h:496 [inline]
+000:  __alloc_pages_node include/linux/gfp.h:509 [inline]
+000:  alloc_pages_node include/linux/gfp.h:523 [inline]
+000:  alloc_thread_stack_node kernel/fork.c:258 [inline]
+000:  dup_task_struct kernel/fork.c:892 [inline]
+000:  copy_process+0x54b/0x5da0 kernel/fork.c:1875
+000:  _do_fork+0xfa/0x8a0 kernel/fork.c:2391
+000:  kernel_thread+0xaa/0xe0 kernel/fork.c:2478
+000:  create_kthread kernel/kthread.c:278 [inline]
+000:  kthreadd+0x3cd/0x590 kernel/kthread.c:596
+000:  ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+000: Dumping ftrace buffer:
+000:    (ftrace buffer empty)
+000: Kernel Offset: 0x17800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+000: Rebooting in 1 seconds..

@@ -1,0 +1,72 @@
+001: ata1: lost interrupt (Status 0x58)
+001: rcu: INFO: rcu_sched self-detected stall on CPU
+001: rcu: 	1-...!: (1 ticks this GP) idle=ac6/1/0x4000000000000000 softirq=2584/2584 fqs=380 
+001: 	(t=56847 jiffies g=2121 q=0)
+001: rcu: rcu_sched kthread starved for 55327 jiffies! g2121 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=0
+001: rcu: 	Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.
+001: rcu: RCU grace-period kthread stack dump:
+001: task:rcu_sched       state:I stack:29536 pid:   10 ppid:     2 flags:0x00004000
+001: Call Trace:
+001:  context_switch kernel/sched/core.c:3904 [inline]
+001:  __schedule+0x946/0x19c0 kernel/sched/core.c:4659
+001:  schedule+0xde/0x2f0 kernel/sched/core.c:4734
+001:  schedule_timeout+0x3d5/0x770 kernel/time/timer.c:1881
+001:  rcu_gp_fqs_loop kernel/rcu/tree.c:1890 [inline]
+001:  rcu_gp_kthread+0x1039/0x2740 kernel/rcu/tree.c:2060
+001:  kthread+0x2d8/0x3d0 kernel/kthread.c:292
+001:  ret_from_fork+0x22/0x30 arch/x86/entry/entry_64.S:294
+001: NMI backtrace for cpu 1
+001: CPU: 1 PID: 57 Comm: scsi_eh_0 Not tainted 5.9.0-rc3-rt4+ #20
+001: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+001: Call Trace:
+001:  <IRQ>
+001:  __dump_stack lib/dump_stack.c:77 [inline]
+001:  dump_stack+0x7d/0xb0 lib/dump_stack.c:118
+001:  nmi_cpu_backtrace.cold+0x46/0x80 lib/nmi_backtrace.c:95
+001:  nmi_trigger_cpumask_backtrace+0x120/0x14f lib/nmi_backtrace.c:62
+001:  trigger_single_cpu_backtrace include/linux/nmi.h:164 [inline]
+001:  rcu_dump_cpu_stacks+0x1be/0x216 kernel/rcu/tree_stall.h:318
+001:  print_cpu_stall kernel/rcu/tree_stall.h:551 [inline]
+001:  check_cpu_stall kernel/rcu/tree_stall.h:625 [inline]
+001:  rcu_pending kernel/rcu/tree.c:3639 [inline]
+001:  rcu_sched_clock_irq.cold+0x505/0x96e kernel/rcu/tree.c:2521
+001:  update_process_times+0x24/0x90 kernel/time/timer.c:1710
+001:  tick_sched_handle.isra.0+0x105/0x150 kernel/time/tick-sched.c:176
+001:  tick_sched_timer+0xe7/0x120 kernel/time/tick-sched.c:1321
+001:  __run_hrtimer kernel/time/hrtimer.c:1524 [inline]
+001:  __hrtimer_run_queues+0x308/0x7b0 kernel/time/hrtimer.c:1588
+001:  hrtimer_interrupt+0x2c9/0x6c0 kernel/time/hrtimer.c:1650
+001:  local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1080 [inline]
+001:  __sysvec_apic_timer_interrupt+0xcf/0x310 arch/x86/kernel/apic/apic.c:1097
+001:  asm_call_on_stack+0x12/0x20 arch/x86/entry/entry_64.S:706
+001:  </IRQ>
+001:  __run_on_irqstack arch/x86/include/asm/irq_stack.h:22 [inline]
+001:  run_on_irqstack_cond arch/x86/include/asm/irq_stack.h:48 [inline]
+001:  sysvec_apic_timer_interrupt+0x6f/0x80 arch/x86/kernel/apic/apic.c:1091
+001:  asm_sysvec_apic_timer_interrupt+0x12/0x20 arch/x86/include/asm/idtentry.h:581
+001: RIP: 0010:native_restore_fl arch/x86/include/asm/irqflags.h:41 [inline]
+001: RIP: 0010:arch_local_irq_restore arch/x86/include/asm/irqflags.h:84 [inline]
+001: RIP: 0010:__raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:160 [inline]
+001: RIP: 0010:_raw_spin_unlock_irqrestore+0x35/0x50 kernel/locking/spinlock.c:194
+001: Code: dd fd 48 b8 00 00 00 00 00 fc ff df 48 89 da 48 c1 ea 03 0f b6 04 02 48 89 da 83 e2 07 38 d0 7f 04 84 c0 75 08 c6 03 00 55 9d <5b> 5d c3 48 89 df e8 00 b4 00 fe eb ee 66 66 2e 0f 1f 84 00 00 00
+001: RSP: 0018:ffff88806a9bfc28 EFLAGS: 00000293
+001: RAX: 0000000000000000 RBX: ffff88806a813b00 RCX: ffffffffa958007d
+001: RDX: 0000000000000000 RSI: 0000000000000293 RDI: ffff88806a813b00
+001: RBP: 0000000000000293 R08: 0000000000000001 R09: ffffed100d537f7d
+001: R10: 0000000000000003 R11: ffffed100d537f7c R12: 0000000000000293
+001: R13: ffff88806a97c010 R14: ffff88806a97c130 R15: ffff88806a97c008
+001:  spin_unlock_irqrestore include/linux/spinlock.h:417 [inline]
+001:  ata_bmdma_error_handler+0x23f/0x560 drivers/ata/libata-sff.c:2886
+001:  ata_scsi_port_error_handler+0x643/0x1320 drivers/ata/libata-eh.c:694
+001:  ata_scsi_error+0x215/0x3d0 drivers/ata/libata-eh.c:538
+001:  scsi_error_handler+0x22e/0xf00 drivers/scsi/scsi_error.c:2225
+001:  kthread+0x2d8/0x3d0 kernel/kthread.c:292
+001:  ret_from_fork+0x22/0x30 arch/x86/entry/entry_64.S:294
+001: ata1.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x6 frozen
+001: ata1.00: failed command: WRITE DMA EXT
+001: ata1.00: cmd 35/00:f8:b0:02:20/00:01:00:00:00/e0 tag 0 dma 258048 out
+001:          res 40/00:01:00:00:00/00:00:00:00:00/a0 Emask 0x4 (timeout)
+001: ata1.00: status: { DRDY }
+001: ata1: soft resetting link
+001: ata1.00: configured for MWDMA2
+001: ata1: EH complete

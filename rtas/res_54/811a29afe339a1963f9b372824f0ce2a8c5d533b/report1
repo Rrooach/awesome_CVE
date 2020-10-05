@@ -1,0 +1,7 @@
+000: perf: interrupt took too long (6626 > 6606), lowering kernel.perf_event_max_sample_rate to 30000
+000: perf: interrupt took too long (10395 > 10391), lowering kernel.perf_event_max_sample_rate to 19000
+000: WARNING: stack recursion on stack type 4
+000: WARNING: can't dereference registers at 00000000477a7a64 for ip swapgs_restore_regs_and_return_to_usermode+0x79/0x80
+000: perf: interrupt took too long (13005 > 12993), lowering kernel.perf_event_max_sample_rate to 15000
+000: SELinux: unrecognized netlink message: protocol=0 nlmsg_type=52332 sclass=netlink_route_socket pig=17639 comm=syz-executor.0
+000: SELinux: unrecognized netlink message: protocol=0 nlmsg_type=52332 sclass=netlink_route_socket pig=17641 comm=syz-executor.0

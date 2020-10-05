@@ -1,0 +1,42 @@
+000: Kernel panic - not syncing: panic_on_warn set ...
+000: CPU: 0 PID: 6940 Comm: syz-executor.0 Tainted: G    B             5.4.0-rt1+ #1
+000: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+000: Call Trace:
+000:  __dump_stack lib/dump_stack.c:77 [inline]
+000:  dump_stack+0x95/0xce lib/dump_stack.c:118
+000:  panic+0x24b/0x582 kernel/panic.c:221
+000:  end_report+0x43/0x49 mm/kasan/report.c:96
+000:  __kasan_report.cold+0xd/0x41 mm/kasan/report.c:513
+000:  kasan_report+0xe/0x20 mm/kasan/common.c:634
+000:  screen_glyph drivers/tty/vt/vt.c:4621 [inline]
+000:  screen_glyph_unicode drivers/tty/vt/vt.c:4636 [inline]
+000:  screen_glyph_unicode+0x245/0x290 drivers/tty/vt/vt.c:4630
+000:  sel_pos drivers/tty/vt/selection.c:66 [inline]
+000:  sel_pos+0x61/0x70 drivers/tty/vt/selection.c:63
+000:  set_selection_kernel+0x9a7/0x1130 drivers/tty/vt/selection.c:269
+000:  set_selection_user+0x87/0xca drivers/tty/vt/selection.c:177
+000:  tioclinux+0x278/0x440 drivers/tty/vt/vt.c:3039
+000:  vt_ioctl+0xa44/0x2440 drivers/tty/vt/vt_ioctl.c:364
+000:  tty_ioctl+0x66f/0x1310 drivers/tty/tty_io.c:2657
+000:  vfs_ioctl fs/ioctl.c:46 [inline]
+000:  file_ioctl fs/ioctl.c:509 [inline]
+000:  do_vfs_ioctl+0xae6/0x1030 fs/ioctl.c:696
+000:  ksys_ioctl+0x76/0xa0 fs/ioctl.c:713
+000:  __do_sys_ioctl fs/ioctl.c:720 [inline]
+000:  __se_sys_ioctl fs/ioctl.c:718 [inline]
+000:  __x64_sys_ioctl+0x6f/0xb0 fs/ioctl.c:718
+000:  do_syscall_64+0x9a/0x330 arch/x86/entry/common.c:297
+000:  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+000: RIP: 0033:0x46817d
+000: Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+000: RSP: 002b:00007fb9ee86dc58 EFLAGS: 00000246
+000:  ORIG_RAX: 0000000000000010
+000: RAX: ffffffffffffffda RBX: 000000000057cf00 RCX: 000000000046817d
+000: RDX: 00000000200002c0 RSI: 000000000000541c RDI: 0000000000000003
+000: RBP: 00000000004c4725 R08: 0000000000000000 R09: 0000000000000000
+000: R10: 0000000000000000 R11: 0000000000000246 R12: 000000000057cf00
+000: R13: 00007ffda7b76b9f R14: 00007ffda7b76d30 R15: 00007fb9ee86ddc0
+000: Dumping ftrace buffer:
+000:    (ftrace buffer empty)
+000: Kernel Offset: 0x1c200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+000: Rebooting in 1 seconds..

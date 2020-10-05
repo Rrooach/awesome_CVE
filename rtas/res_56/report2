@@ -1,0 +1,36 @@
+000: Kernel panic - not syncing: panic_on_warn set ...
+000: CPU: 0 PID: 5 Comm: kworker/0:0 Not tainted 5.6.0-rt1+ #1
+000: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+000: Workqueue: events_power_efficient crda_timeout_work
+000: 
+000: Call Trace:
+000:  __dump_stack lib/dump_stack.c:77 [inline]
+000:  dump_stack+0x95/0xce lib/dump_stack.c:118
+000:  panic+0x24b/0x582 kernel/panic.c:221
+000:  __warn.cold+0x2f/0x35 kernel/panic.c:581
+000:  report_bug+0x214/0x270 lib/bug.c:195
+000:  fixup_bug arch/x86/kernel/traps.c:174 [inline]
+000:  fixup_bug arch/x86/kernel/traps.c:169 [inline]
+000:  do_error_trap+0x10f/0x180 arch/x86/kernel/traps.c:267
+000:  do_invalid_op+0x32/0x40 arch/x86/kernel/traps.c:286
+000:  invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1043
+000: RIP: 0010:is_user_regdom_saved net/wireless/reg.c:418 [inline]
+000: RIP: 0010:restore_alpha2 net/wireless/reg.c:3099 [inline]
+000: RIP: 0010:restore_regulatory_settings+0x1ba/0x1170 net/wireless/reg.c:3191
+000: Code: 08 0f 00 00 41 f6 85 e0 26 c4 8a 03 0f 85 a6 06 00 00 e8 79 76 14 fe 41 0f be d4 0f be f3 48 c7 c7 a0 ea c1 8a e8 48 96 f0 fd <0f> 0b e8 5f 76 14 fe 48 8b 1d 68 0a 53 01 48 b8 00 00 00 00 00 fc
+000: RSP: 0018:ffff88811a94fcb8 EFLAGS: 00010282
+000: 
+000: RAX: 0000000000000000 RBX: 0000000000000042 RCX: 0000000000000000
+000: RDX: 0000000000000000 RSI: 0000000000000008 RDI: ffffed1023529f89
+000: RBP: 0000000000000001 R08: 0000000000000001 R09: fffffbfff1619333
+000: R10: fffffbfff1619332 R11: ffffffff8b0c9997 R12: 0000000000000000
+000: R13: 0000000000000000 R14: ffffffff8b5499f0 R15: ffff88811a8d1000
+000:  crda_timeout_work+0x1d/0x30 net/wireless/reg.c:520
+000:  process_one_work+0x880/0x1260 kernel/workqueue.c:2269
+000:  worker_thread+0x97/0xf90 kernel/workqueue.c:2415
+000:  kthread+0x2ce/0x3d0 kernel/kthread.c:255
+000:  ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+000: Dumping ftrace buffer:
+000:    (ftrace buffer empty)
+000: Kernel Offset: 0x6e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+000: Rebooting in 1 seconds..

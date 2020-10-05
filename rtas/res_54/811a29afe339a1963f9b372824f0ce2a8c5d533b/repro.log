@@ -1,0 +1,78 @@
+Warning: Permanently added '[localhost]:53206' (ECDSA) to the list of known hosts.
+syzkaller login: [   10.997958] 000: audit: type=1400 audit(1601539501.185:8): avc:  denied  { execmem } for  pid=390 comm="syz-executor705" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+executing program
+perf: interrupt took too long (3242 > 3193), lowering kernel.perf_event_max_sample_rate to 61000
+perf: interrupt took too long (4127 > 4052), lowering kernel.perf_event_max_sample_rate to 48000
+perf: interrupt took too long (5195 > 5158), lowering kernel.perf_event_max_sample_rate to 38000
+perf: interrupt took too long (6531 > 6493), lowering kernel.perf_event_max_sample_rate to 30000
+[   11.008610] 000: perf: interrupt took too long (6531 > 6493), lowering kernel.perf_event_max_sample_rate to 30000
+[   11.008939] 000: perf: interrupt took too long (8165 > 8163), lowering kernel.perf_event_max_sample_rate to 24000
+executing program
+[   11.014487] 000: perf: interrupt took too long (10224 > 10206), lowering kernel.perf_event_max_sample_rate to 19000
+[   11.020772] 000: perf: interrupt took too long (12789 > 12780), lowering kernel.perf_event_max_sample_rate to 15000
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   11.136760] 000: WARNING: stack recursion on stack type 4
+[   11.136769] 000: WARNING: can't dereference registers at 000000003262c871 for ip swapgs_restore_regs_and_return_to_usermode+0x25/0x80

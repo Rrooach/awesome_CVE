@@ -1,0 +1,22 @@
+001: ata1.00: cmd ca/00:08:00:20:14/00:00:00:00:00/e0 tag 0 dma 4096 out
+001:          res 40/00:01:00:00:00/00:00:00:00:00/a0 Emask 0x4 (timeout)
+001: ata1.00: status: { DRDY }
+001: ata1: soft resetting link
+000: rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+000: 	(detected by 0, t=46463 jiffies, g=1020125, q=0)
+000: rcu: All QSes seen, last rcu_sched kthread activity 46463 (4297898383-4297851920), jiffies_till_next_fqs=3, root ->qsmask 0x0
+000: rcu: rcu_sched kthread starved for 46463 jiffies! g1020125 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=1
+000: rcu: 	Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.
+000: rcu: RCU grace-period kthread stack dump:
+000: task:rcu_sched       state:R  running task     stack:29472 pid:   10 ppid:     2 flags:0x00004000
+000: Call Trace:
+000:  context_switch kernel/sched/core.c:3904 [inline]
+000:  __schedule+0x946/0x19c0 kernel/sched/core.c:4659
+000:  schedule+0xde/0x2f0 kernel/sched/core.c:4734
+000:  schedule_timeout+0x3d5/0x770 kernel/time/timer.c:1881
+000:  rcu_gp_fqs_loop kernel/rcu/tree.c:1890 [inline]
+000:  rcu_gp_kthread+0x1039/0x2740 kernel/rcu/tree.c:2060
+000:  kthread+0x2d8/0x3d0 kernel/kthread.c:292
+000:  ret_from_fork+0x22/0x30 arch/x86/entry/entry_64.S:294
+000: ata1.00: configured for MWDMA2
+000: ata1: EH complete

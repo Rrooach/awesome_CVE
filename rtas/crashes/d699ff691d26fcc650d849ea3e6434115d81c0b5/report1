@@ -1,0 +1,45 @@
+001: Kernel panic - not syncing: panic_on_warn set ...
+001: CPU: 1 PID: 1720 Comm: kworker/u6:9 Not tainted 5.9.0-rc3-rt4+ #6
+001: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+001: Workqueue: writeback wb_workfn
+001:  (flush-7:0)
+001: 
+001: Call Trace:
+001:  dump_stack+0xbe/0xfe lib/dump_stack.c:77
+001:  panic+0x22d/0x59a kernel/panic.c:231
+001:  __warn.cold+0x2f/0x38 kernel/panic.c:599
+001:  report_bug+0x1ba/0x200 lib/bug.c:198
+001:  handle_bug+0x41/0x80 arch/x86/kernel/traps.c:234
+001:  exc_invalid_op+0x14/0x40 arch/x86/kernel/traps.c:254
+001:  asm_exc_invalid_op+0x12/0x20 arch/x86/include/asm/idtentry.h:536
+001: RIP: 0010:submit_bio_checks+0xcb0/0xd40 block/blk-core.c:858
+001: Code: 16 d3 a3 ff 45 8b af 84 03 00 00 48 89 ef 48 8d 74 24 60 e8 12 08 ff ff 44 89 ea 48 c7 c7 80 bf 9a b9 48 89 c6 e8 06 42 72 ff <0f> 0b 4c 89 f7 e8 26 d4 a3 ff 48 8b 7c 24 18 4c 8b 7d 08 e8 d8 d2
+001: RSP: 0018:ffffc900134d71e8 EFLAGS: 00010282
+001: 
+001: RAX: 0000000000000000 RBX: ffff8881180b0000 RCX: 0000000000000000
+001: RDX: 0000000000000000 RSI: 0000000000000008 RDI: fffff5200269ae2f
+001: RBP: ffff8881125d4300 R08: 0000000000000001 R09: fffffbfff741a603
+001: R10: ffffffffba0d3017 R11: fffffbfff741a602 R12: ffff8881125d4310
+001: R13: 0000000000000000 R14: ffff8881125d4308 R15: ffff888118799000
+001:  submit_bio_noacct+0x80/0x890 block/blk-core.c:1198
+001:  submit_bio+0xc6/0x390 block/blk-core.c:1283
+001:  submit_bh_wbc.isra.0+0x394/0x3f0 fs/buffer.c:3070
+001:  __block_write_full_page+0x5d7/0xaa0 fs/buffer.c:1810
+001:  block_write_full_page+0x17f/0x190 fs/buffer.c:2996
+001:  __writepage+0x38/0xe0 mm/page-writeback.c:2311
+001:  write_cache_pages+0x39e/0x9c0 mm/page-writeback.c:2246
+001:  generic_writepages+0xc3/0x120 mm/page-writeback.c:2337
+001:  do_writepages+0xbb/0x1e0 mm/page-writeback.c:2352
+001:  __writeback_single_inode+0x90/0x780 fs/fs-writeback.c:1461
+001:  writeback_sb_inodes+0x45c/0x940 fs/fs-writeback.c:1721
+001:  __writeback_inodes_wb+0x75/0x1a0 fs/fs-writeback.c:1790
+001:  wb_writeback+0x586/0x620 fs/fs-writeback.c:1896
+001:  wb_workfn+0x642/0x900 fs/fs-writeback.c:2020
+001:  process_one_work+0x52f/0x960 kernel/workqueue.c:2269
+001:  worker_thread+0x7d/0x830 kernel/workqueue.c:2415
+001:  kthread+0x1c7/0x220 kernel/kthread.c:292
+001:  ret_from_fork+0x22/0x30 arch/x86/entry/entry_64.S:294
+001: Dumping ftrace buffer:
+001:    (ftrace buffer empty)
+001: Kernel Offset: 0x36800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+001: Rebooting in 1 seconds..

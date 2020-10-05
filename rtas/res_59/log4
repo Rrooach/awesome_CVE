@@ -1,0 +1,94 @@
+[[0;32m  OK  [0m] Started Daily apt upgrade and clean activities.
+Warning: Permanently added '[localhost]:5668' (ECDSA) to the list of known hosts.
+2020/09/23 11:08:50 fuzzer started
+2020/09/23 11:08:50 dialing manager at 10.0.2.10:33927
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+syzkaller login: [   62.170354] 001: ata1: lost interrupt (Status 0x58)
+[  118.967035] 001: rcu: INFO: rcu_sched self-detected stall on CPU
+[  118.967042] 001: rcu: 	1-...!: (1 ticks this GP) idle=ac6/1/0x4000000000000000 softirq=2584/2584 fqs=380 
+[  118.967050] 001: 	(t=56847 jiffies g=2121 q=0)
+[  118.967051] 001: rcu: rcu_sched kthread starved for 55327 jiffies! g2121 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=0
+[  118.967053] 001: rcu: 	Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.
+[  118.967054] 001: rcu: RCU grace-period kthread stack dump:
+[  118.967057] 001: task:rcu_sched       state:I stack:29536 pid:   10 ppid:     2 flags:0x00004000
+[  118.967070] 001: Call Trace:
+[  118.967081] 001:  __schedule+0x946/0x19c0
+[  118.967113] 001:  ? __sched_text_start+0x8/0x8
+[  118.967115] 001:  ? internal_add_timer+0xb7/0x100
+[  118.967127] 001:  ? del_timer+0x100/0x100
+[  118.967129] 001:  ? enqueue_timer+0x440/0x440
+[  118.967131] 001:  schedule+0xde/0x2f0
+[  118.967133] 001:  schedule_timeout+0x3d5/0x770
+[  118.967136] 001:  ? usleep_range+0x110/0x110
+[  118.967138] 001:  ? rcu_implicit_dynticks_qs+0x255/0xc10
+[  118.967145] 001:  ? __next_timer_interrupt+0x1b0/0x1b0
+[  118.967147] 001:  ? swake_up_one+0x70/0x70
+[  118.967152] 001:  ? rcu_note_context_switch+0x2e0/0x2e0
+[  118.967154] 001:  rcu_gp_kthread+0x1039/0x2740
+[  118.967157] 001:  ? __schedule+0x99d/0x19c0
+[  118.967159] 001:  ? call_rcu+0xb00/0xb00
+[  118.967161] 001:  ? _raw_write_lock_irqsave+0xf0/0xf0
+[  118.967164] 001:  ? call_rcu+0xb00/0xb00
+[  118.967166] 001:  kthread+0x2d8/0x3d0
+[  118.967171] 001:  ? kthread_create_on_node+0xd0/0xd0
+[  118.967173] 001:  ret_from_fork+0x22/0x30
+[  118.967188] 001: NMI backtrace for cpu 1
+[  118.967190] 001: CPU: 1 PID: 57 Comm: scsi_eh_0 Not tainted 5.9.0-rc3-rt4+ #20
+[  118.967193] 001: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+[  118.967194] 001: Call Trace:
+[  118.967195] 001:  <IRQ>
+[  118.967196] 001:  dump_stack+0x7d/0xb0
+[  118.967206] 001:  nmi_cpu_backtrace.cold+0x46/0x80
+[  118.967209] 001:  ? lapic_can_unplug_cpu.cold+0x44/0x44
+[  118.967214] 001:  nmi_trigger_cpumask_backtrace+0x120/0x14f
+[  118.967217] 001:  rcu_dump_cpu_stacks+0x1be/0x216
+[  118.967219] 001:  ? rcu_check_gp_kthread_starvation+0x17c/0x18b
+[  118.967221] 001:  rcu_sched_clock_irq.cold+0x505/0x96e
+[  118.967223] 001:  ? hrtimer_run_queues+0x1d/0x310
+[  118.967226] 001:  update_process_times+0x24/0x90
+[  118.967228] 001:  tick_sched_handle.isra.0+0x105/0x150
+[  118.967233] 001:  tick_sched_timer+0xe7/0x120
+[  118.967235] 001:  __hrtimer_run_queues+0x308/0x7b0
+[  118.967237] 001:  ? tick_sched_handle.isra.0+0x150/0x150
+[  118.967239] 001:  ? enqueue_hrtimer+0x230/0x230
+[  118.967240] 001:  ? _raw_write_lock_irqsave+0xf0/0xf0
+[  118.967242] 001:  ? recalibrate_cpu_khz+0x10/0x10
+[  118.967246] 001:  ? ktime_get_update_offsets_now+0x6e/0x240
+[  118.967249] 001:  hrtimer_interrupt+0x2c9/0x6c0
+[  118.967251] 001:  __sysvec_apic_timer_interrupt+0xcf/0x310
+[  118.967255] 001:  asm_call_on_stack+0x12/0x20
+[  118.967259] 001:  </IRQ>
+[  118.967260] 001:  sysvec_apic_timer_interrupt+0x6f/0x80
+[  118.967262] 001:  asm_sysvec_apic_timer_interrupt+0x12/0x20
+[  118.967265] 001: RIP: 0010:_raw_spin_unlock_irqrestore+0x35/0x50
+[  118.967268] 001: Code: dd fd 48 b8 00 00 00 00 00 fc ff df 48 89 da 48 c1 ea 03 0f b6 04 02 48 89 da 83 e2 07 38 d0 7f 04 84 c0 75 08 c6 03 00 55 9d <5b> 5d c3 48 89 df e8 00 b4 00 fe eb ee 66 66 2e 0f 1f 84 00 00 00
+[  118.967271] 001: RSP: 0018:ffff88806a9bfc28 EFLAGS: 00000293
+[  118.967272] 001: RAX: 0000000000000000 RBX: ffff88806a813b00 RCX: ffffffffa958007d
+[  118.967274] 001: RDX: 0000000000000000 RSI: 0000000000000293 RDI: ffff88806a813b00
+[  118.967275] 001: RBP: 0000000000000293 R08: 0000000000000001 R09: ffffed100d537f7d
+[  118.967276] 001: R10: 0000000000000003 R11: ffffed100d537f7c R12: 0000000000000293
+[  118.967277] 001: R13: ffff88806a97c010 R14: ffff88806a97c130 R15: ffff88806a97c008
+[  118.967279] 001:  ? _raw_spin_unlock_irqrestore+0xd/0x50
+[  118.967281] 001:  ata_bmdma_error_handler+0x23f/0x560
+[  118.967294] 001:  ata_scsi_port_error_handler+0x643/0x1320
+[  118.967298] 001:  ata_scsi_error+0x215/0x3d0
+[  118.967300] 001:  ? __sched_text_start+0x8/0x8
+[  118.967302] 001:  ? ata_scsi_port_error_handler+0x1320/0x1320
+[  118.967307] 001:  ? scsi_host_lookup+0x110/0x110
+[  118.967312] 001:  scsi_error_handler+0x22e/0xf00
+[  118.967316] 001:  ? scsi_eh_get_sense+0x730/0x730
+[  118.967318] 001:  ? _raw_write_lock_irqsave+0xf0/0xf0
+[  118.967319] 001:  ? scsi_eh_get_sense+0x730/0x730
+[  118.967321] 001:  kthread+0x2d8/0x3d0
+[  118.967323] 001:  ? kthread_create_on_node+0xd0/0xd0
+[  118.967325] 001:  ret_from_fork+0x22/0x30
+[  118.967386] 001: ata1.00: exception Emask 0x0 SAct 0x0 SErr 0x0 action 0x6 frozen
+[  118.967391] 001: ata1.00: failed command: WRITE DMA EXT
+[  118.967392] 001: ata1.00: cmd 35/00:f8:b0:02:20/00:01:00:00:00/e0 tag 0 dma 258048 out
+[  118.967392] 001:          res 40/00:01:00:00:00/00:00:00:00:00/a0 Emask 0x4 (timeout)
+[  118.967397] 001: ata1.00: status: { DRDY }
+[  118.967511] 001: ata1: soft resetting link
+[  119.120506] 001: ata1.00: configured for MWDMA2
+[  119.120524] 001: ata1: EH complete

@@ -1,0 +1,46 @@
+000: Node 0 DMA32 free:7800kB min:6436kB low:9420kB high:12404kB reserved_highatomic:0KB active_anon:20kB inactive_anon:19216kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:3129216kB managed:2987636kB mlocked:0kB pagetables:1124kB bounce:0kB free_pcp:344kB local_pcp:340kB free_cma:0kB
+000: lowmem_reserve[]: 0 0 429 429
+000: Node 0 Normal free:1436kB min:3676kB low:4112kB high:4548kB reserved_highatomic:0KB active_anon:46556kB inactive_anon:103556kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:1048576kB managed:439988kB mlocked:0kB pagetables:2644kB bounce:0kB free_pcp:628kB local_pcp:628kB free_cma:0kB
+000: lowmem_reserve[]: 0 0 0 0
+000: Node 0 DMA: 1*4kB (U) 0*8kB 0*16kB 1*32kB (U) 1*64kB (U) 0*128kB 0*256kB 0*512kB 1*1024kB (U) 2*2048kB (UM) 2*4096kB (M) = 13412kB
+001: Kernel panic - not syncing: System is deadlocked on memory
+001: CPU: 1 PID: 1 Comm: systemd Not tainted 5.9.0-rc3-rt4+ #4
+001: Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1 04/01/2014
+001: Call Trace:
+001:  __dump_stack lib/dump_stack.c:77 [inline]
+001:  dump_stack+0x9c/0xde lib/dump_stack.c:118
+001:  panic+0x24b/0x582 kernel/panic.c:231
+001:  out_of_memory mm/oom_kill.c:1110 [inline]
+001:  out_of_memory.cold+0xce/0x147 mm/oom_kill.c:1045
+001:  __alloc_pages_may_oom mm/page_alloc.c:4068 [inline]
+001:  __alloc_pages_slowpath.constprop.0+0x18e1/0x1f10 mm/page_alloc.c:4799
+001:  __alloc_pages_nodemask+0x47a/0x590 mm/page_alloc.c:4971
+001:  alloc_pages_current+0xe7/0x1e0 mm/mempolicy.c:2275
+001:  alloc_pages include/linux/gfp.h:545 [inline]
+001:  __page_cache_alloc+0xd6/0x200 mm/filemap.c:957
+001:  pagecache_get_page+0x18c/0x650 mm/filemap.c:1710
+001:  filemap_fault+0xcc7/0x1ef0 mm/filemap.c:2595
+001:  ext4_filemap_fault+0x84/0xb0 fs/ext4/inode.c:6060
+001:  __do_fault+0x102/0x2b0 mm/memory.c:3450
+001:  do_read_fault mm/memory.c:3843 [inline]
+001:  do_fault mm/memory.c:3971 [inline]
+001:  handle_pte_fault mm/memory.c:4211 [inline]
+001:  __handle_mm_fault mm/memory.c:4346 [inline]
+001:  handle_mm_fault+0x1529/0x26c0 mm/memory.c:4444
+001:  do_user_addr_fault+0x4a0/0x950 arch/x86/mm/fault.c:1372
+001:  handle_page_fault arch/x86/mm/fault.c:1429 [inline]
+001:  exc_page_fault+0x88/0x130 arch/x86/mm/fault.c:1482
+001:  asm_exc_page_fault+0x1e/0x30 arch/x86/include/asm/idtentry.h:538
+001: RIP: 0033:0x561641ced26d
+001: Code: Bad RIP value.
+001: RSP: 002b:00007ffd3078dc90 EFLAGS: 00010213
+001: 
+001: RAX: 0000000000000080 RBX: 0000561643aae820 RCX: 00007f2601528210
+001: RDX: 0000000000000080 RSI: 00007ffd3078dcc0 RDI: 0000000000000005
+001: RBP: 00007ffd3078dcc0 R08: 0000561643bc6590 R09: 0000000000000400
+001: R10: 0000000000080000 R11: 0000000000000246 R12: 0000000000000011
+001: R13: 0000561641d41ca4 R14: 0000000000000001 R15: 0000000000000002
+001: Dumping ftrace buffer:
+001:    (ftrace buffer empty)
+001: Kernel Offset: 0x1cc00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+001: Rebooting in 1 seconds..
